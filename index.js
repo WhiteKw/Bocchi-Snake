@@ -5,16 +5,21 @@ let score;
 let tempDirection;
 let direction;
 let boardSize = 20;
-let isGameover;
+let isGameover = true;
 let game;
 let speed;
 
 // UI
 let gameoverUI = document.getElementById("gameover_ui");
-let scoreUI;
-let bestScoreUI;
+let scoreUI = document.querySelector(".current_score");
+let bestScoreUI = document.querySelector(".best_score");
 
-Init();
+if (localStorage.getItem("bestScore") === null) {
+  bestScoreUI.innerText = 0;
+  localStorage.setItem("bestScore", 0);
+} else {
+  bestScoreUI.innerText = localStorage.getItem("bestScore");
+}
 
 document.onkeydown = KeyDownEventHandler;
 
@@ -124,6 +129,12 @@ function CheckEatCoin() {
 
   if (isEatCoin) {
     score += 1;
+    scoreUI.innerText = score;
+
+    if (score > localStorage.getItem("bestScore")) {
+      bestScoreUI.innerText = score;
+      localStorage.setItem("bestScore", score);
+    }
     SetCoin();
   } else {
     RemoveTail();
@@ -166,14 +177,19 @@ function Game() {
 function Init() {
   snake = new Array();
   score = 0;
-  x = 1;
-  y = 1;
   tempDirection = 3;
   direction = 3;
   speed = 10;
   isGameover = false;
   gameoverUI.className = "";
+  scoreUI.innerText = 0;
+  bestScoreUI.innerText = localStorage.getItem("bestScore");
   DrawBoard();
+  x = 1;
+  y = 1;
+  AppendHead();
+  x = 2
+  y = 1
   AppendHead();
   SetCoin();
   game = setInterval(Game, 1000 / speed);
