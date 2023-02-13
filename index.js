@@ -37,6 +37,18 @@ function KeyDownEventHandler(e) {
   }
 }
 
+function MobileKeyDownEventHandler(num) {
+  if (num === 0 && direction !== 1) {
+    tempDirection = 0;
+  } else if (num === 1 && direction !== 0) {
+    tempDirection = 1;
+  } else if (num === 2 && direction !== 3) {
+    tempDirection = 2;
+  } else if (num === 3 && direction !== 2) {
+    tempDirection = 3;
+  }
+}
+
 // 타일 생성
 function DrawBoard() {
   let gameBoard = document.getElementById("game_board");

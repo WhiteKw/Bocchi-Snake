@@ -12,22 +12,28 @@
   <div id="wrap">
     <div id="container">
       <div id="information">
-        <div>
-          <div class="score_board">
-            <img src="./resources/images/hair_tie.png"/>
-            <div class="current_score">0</div>
-          </div>
+        <div class="score_board">
+          <img src="./resources/images/hair_tie.png"/>
+          <div class="current_score">0</div>
+        </div>
 
-          <div class="score_board">
-            <img src="./resources/images/medal.png"/>
-            <div class="best_score">0</div>
-          </div>
+        <div class="score_board">
+          <img src="./resources/images/medal.png"/>
+          <div class="best_score">0</div>
         </div>
         <div></div>
       </div>
 
       <div id="game_board">
         <div class="start_txt"><h1>Press R to start</h1></div>
+        <div class="start_button" onclick="Init();">START</div>
+      </div>
+
+      <div id="arrow_key_area">
+        <div class="up" onclick="MobileKeyDownEventHandler(0);">↑</div>
+        <div class="right" onclick="MobileKeyDownEventHandler(3);">→</div>
+        <div class="down" onclick="MobileKeyDownEventHandler(1);">↓</div>
+        <div class="left" onclick="MobileKeyDownEventHandler(2);">←</div>
       </div>
     </div>
   </div>
@@ -36,6 +42,7 @@
     <div>
       <h1>Game Over</h1>
       <h2>Press R to restart</h2>
+      <div class="start_button white" onclick="Init();">START</div>
     </div>
   </div>
 </body>

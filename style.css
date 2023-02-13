@@ -30,6 +30,12 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  font-size: 16px;
+}
+
+#information {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .score_board {
@@ -43,6 +49,48 @@
   width: 30px;
   height: 30px;
   margin-right: 10px;
+}
+
+#arrow_key_area {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#arrow_key_area > div {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
+#arrow_key_area .up {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#arrow_key_area .down {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+#arrow_key_area .left {
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+#arrow_key_area .right {
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
 }
 
 #gameover_ui {
@@ -62,6 +110,7 @@
 
 #gameover_ui h2 {
   color: #fff;
+  margin-bottom: 20px;
 }
 
 #gameover_ui.show {
@@ -106,6 +155,21 @@
   animation-iteration-count: infinite;
   background: url(./resources/images/hair_tie.png) center no-repeat;
   background-size: contain;
+}
+
+.start_button {
+  width: fit-content;
+  height: fit-content;
+  padding: 5px 15px;
+  margin: 0 auto;
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
+.start_button.white {
+  color: #fff;
+  border-color: #fff;
 }
 
 @-webkit-keyframes coinAnimation {
